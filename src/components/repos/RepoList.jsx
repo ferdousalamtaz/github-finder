@@ -1,6 +1,4 @@
 import React from 'react'
-import { useContext } from 'react'
-import GithubContext from '../../context/github/GithubContext'
 import PropTypes from 'prop-types'
 import RepoItem from './RepoItem'
 

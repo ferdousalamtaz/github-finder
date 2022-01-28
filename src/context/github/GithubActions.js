@@ -14,9 +14,17 @@ export const searchUsers = async (text) => {
     q: text,
   })
 
-  const response = await github.get(`/search/users?${params}`)
+  const response = await fetch(`${GITHUB_URL}/search/users?${params}`, {
+    headers: {
+      Authorization: `token ${GITHUB_TOKEN}`,
+    },
+  })
 
-  return response.data.items
+  const { items } = await response.json()
+
+  console.log(items)
+
+  return items
 }
 
 export const getUserAndRepos = async (login) => {
